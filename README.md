@@ -1,6 +1,8 @@
 # my-blog
 see issues  
 
+[使用history保存列表页ajax请求的状态](https://github.com/lulusir/my-blog/issues/11)
+
 [Bug记录--ios11 弹出层fix定位时，点击input光标不正确](https://github.com/lulusir/my-blog/issues/10)
 
 [数据结构--笔记--树](https://github.com/lulusir/my-blog/issues/9)
