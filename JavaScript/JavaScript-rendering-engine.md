@@ -30,7 +30,7 @@
 ##### 抽象CSSOM tree
 > 当浏览器解析dom的时候，遇到link标签，引用外部的css样式表，引擎会将css抽象成cssom
 ![image](https://cdn-images-1.medium.com/max/800/1*5YU1su2mdzHEQ5iDisKUyw.png)
-为啥CSSOM也会是树结构？因为子节点会继承父节点的样式。
+
 ##### 构建渲染树
 > HTML中的可视指令与来自cssom树的样式数据结合使用来创建渲染树。
 ![image](https://cdn-images-1.medium.com/max/800/1*WHR_08AD8APDITQ-4CFDgg.png)
@@ -62,12 +62,26 @@
 
 html5添加了一个选项，将脚本标记为异步，以便它可以被其他线程解析和执行。
 
+##### 回流和重绘（reflow和repaint）
+- 回流： 意味着元素的内容、结构、位置或尺寸发生了变化，需要重新计算样式和渲染树；
+- 重绘：意味着元素发生的改变只影响了节点的一些样式（背景色，边框颜色，文字颜色等），只需要应用新样式绘制这个元素就可以了；
+
+##### 何时触发回流和重绘
+- repaint重绘：
+  1. reflow回流必定引起repaint重绘，重绘可以单独触发
+  2. 背景色、颜色、字体改变（注意：字体大小发生变化时，会触发回流）
+- reflow回流：
+  1. 页面第一次渲染（初始化）
+  2. DOM树变化（如：增删节点）
+  3. Render树变化（如：padding改变）
+  4. 浏览器窗口resize
+  5. 浏览器为了获得正确的值也会提前触发回流，这样就使得浏览器的优化失效了，这些属性包括offsetLeft、offsetTop、offsetWidth、offsetHeight、 scrollTop/Left/Width/Height、clientTop/Left/Width/Height、调用了getComputedStyle()或者IE的currentStyle
 ##### 优化渲染性能
 
 **javascript**
 1. 避免使用setTimeout setInterval 来更新视图，因为回调触发的时间不好掌控
 2. 使用异步js，把js放在body结束前
-2. 把密集计算移动到Web Workers
+
 
 **CSS**
 - 减少选择器的复杂性。与构造样式本身的其余工作相比，选择器复杂度可能需要计算元素样式所需时间的50％以上。
@@ -79,8 +93,8 @@ html5添加了一个选项，将脚本标记为异步，以便它可以被其他
 - 避免逐个修改节点样式，尽量一次性修改
 - 使用DocumentFragment将需要多次修改的DOM元素缓存，最后一次性append到真实DOM中渲染
 - 可以将需要多次修改的DOM元素设置display: none，操作完再显示。（因为隐藏元素不在render树内，因此修改隐藏元素不会触发回流重绘）
-- 避免多次读取某些属性
-- 将复杂的节点元素脱离文档流，降低回流成本（这些属性包括offsetLeft、offsetTop、offsetWidth、offsetHeight、 scrollTop/Left/Width/Height、clientTop/Left/Width/Height、调用了getComputedStyle()或者IE的currentStyle）
+- 避免多次读取某些属性（同上）
+- 将复杂的节点元素脱离文档流，降低回流成本
 
 本文翻译自，[How JavaScript works: the rendering engine and tips to optimize its performance](https://blog.sessionstack.com/how-javascript-works-the-rendering-engine-and-tips-to-optimize-its-performance-7b95553baeda)
 
