@@ -54,7 +54,7 @@
 渲染分为全局渲染和增量渲染
 
 ##### 处理脚本和样式表的顺序
-当解析器到达<script>标记时，脚本将被立即解析并执行。
+> 当解析器到达script标记时，脚本将被立即解析并执行。
 文档的解析将暂停，直到脚本执行完毕。
 这意味着该过程是同步的
 
@@ -66,13 +66,22 @@ html5添加了一个选项，将脚本标记为异步，以便它可以被其他
 
 **javascript**
 1. 避免使用setTimeout setInterval 来更新视图，因为回调触发的时间不好掌控
+2. 使用异步js，把js放在body结束前
 2. 把密集计算移动到Web Workers
-3. 
 
 **CSS**
 - 减少选择器的复杂性。与构造样式本身的其余工作相比，选择器复杂度可能需要计算元素样式所需时间的50％以上。
 - 减少style修改所影响元素的数量，就是不要用打炮打蚊子
 
-**layout**
+**减少reflow和repaint**
 - 尽可能减少布局的数量。当您更改样式时，浏览器会检查是否有任何更改要求重新计算布局。对宽度，高度，左侧，顶部等属性的更改以及与几何图形相关的属性的更改都需要布局。所以，尽量避免改变它们。
 - 尽可能在较早的布局模型上使用Flexbox。
+- 避免逐个修改节点样式，尽量一次性修改
+- 使用DocumentFragment将需要多次修改的DOM元素缓存，最后一次性append到真实DOM中渲染
+- 可以将需要多次修改的DOM元素设置display: none，操作完再显示。（因为隐藏元素不在render树内，因此修改隐藏元素不会触发回流重绘）
+- 避免多次读取某些属性
+- 将复杂的节点元素脱离文档流，降低回流成本（这些属性包括offsetLeft、offsetTop、offsetWidth、offsetHeight、 scrollTop/Left/Width/Height、clientTop/Left/Width/Height、调用了getComputedStyle()或者IE的currentStyle）
+
+本文翻译自，[How JavaScript works: the rendering engine and tips to optimize its performance](https://blog.sessionstack.com/how-javascript-works-the-rendering-engine-and-tips-to-optimize-its-performance-7b95553baeda)
+
+参考[DOM操作成本到底高在哪儿](http://palmer.arkstack.cn/2018/03/DOM%E6%93%8D%E4%BD%9C%E6%88%90%E6%9C%AC%E5%88%B0%E5%BA%95%E9%AB%98%E5%9C%A8%E5%93%AA%E5%84%BF/)
