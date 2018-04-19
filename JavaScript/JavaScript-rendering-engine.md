@@ -72,8 +72,8 @@ html5添加了一个选项，将脚本标记为异步，以便它可以被其他
 **javascript**
 1. 避免使用setTimeout setInterval 来更新视图，这会在render之后提交修改需求
 2. 在micro-tasks中修改dom。这会在render之前提交修改需求
-![image](https://github.com/lulusir/my-blog/blob/master/images/javascript/eventloop.png)
-2. 把script标签放在body结束之前，或者使用异步script(defer， async)
+![image](https://github.com/lulusir/my-blog/blob/master/images/javascript/eventloop.jpg)
+3. 把script标签放在body结束之前，或者使用异步script(defer， async)
 
 **CSS**
 - 减少选择器的复杂性。
