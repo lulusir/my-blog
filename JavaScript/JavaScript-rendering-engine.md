@@ -74,6 +74,7 @@ html5添加了一个选项，将脚本标记为异步，以便它可以被其他
 2. 在micro-tasks中修改dom。这会在render之前提交修改需求
 ![image](https://github.com/lulusir/my-blog/blob/master/images/javascript/eventloop.jpg)
 3. 把script标签放在body结束之前，或者使用异步script(defer， async)
+4. 把计算量大的js放在[workers](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers)执行，例如解析一个大的json文件
 
 **CSS**
 - 减少选择器的复杂性。
