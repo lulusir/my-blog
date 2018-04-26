@@ -54,3 +54,6 @@ class Singleton {
         return this.instance
     }
 }
+
+// 因为esm输出的是值的引用，直接就是单例模式了
+export let createDiv = new CreateDiv()
