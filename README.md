@@ -1,7 +1,13 @@
 # my-blog
 see issues  
 
-[回流、重绘及其优化](https://github.com/lulusir/my-blog/blob/master/JavaScript/JavaScript-rendering-engine.md)
+[使用vuex缓存数据，一步步优化自己的vuex-cache](https://github.com/lulusir/my-blog/issues/14)
+
+[后端模版的webpack多页配置](https://github.com/lulusir/my-blog/issues/13)
+
+[cordova 热更新配置](https://github.com/lulusir/my-blog/issues/12)
+
+[回流、重绘及其优化](https://github.com/lulusir/my-blog/issues/15)
 
 [使用history保存列表页ajax请求的状态](https://github.com/lulusir/my-blog/issues/11)
 
@@ -22,4 +28,5 @@ see issues  
 [数据结构--笔记--栈与队列的实现](https://github.com/lulusir/my-blog/issues/3)
 
 [项目小结](https://github.com/lulusir/my-blog/issues/2)
+
 [用vue开发要注意的小问题](https://github.com/lulusir/my-blog/issues/1)
