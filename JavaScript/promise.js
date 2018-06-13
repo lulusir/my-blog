@@ -14,4 +14,11 @@ function MyPromise (fn) {
     self.value = value
     self.onFulfilled(self.value)
   }
+
+  fn(resolve, reject)
+}
+
+MyPromise.prototype.then = function(onFulfilled, onRejected) {
+  this.onFulfilled = onFulfilled
+  this.onRejected = onRejected
 }
