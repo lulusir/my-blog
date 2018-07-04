@@ -1,6 +1,8 @@
 # my-blog
 see issues  
 
+[async/await 并行请求和错误处理](https://github.com/lulusir/my-blog/issues/16)  
+
 [使用vuex缓存数据，一步步优化自己的vuex-cache](https://github.com/lulusir/my-blog/issues/14)
 
 [后端模版的webpack多页配置](https://github.com/lulusir/my-blog/issues/13)
