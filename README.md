@@ -1,5 +1,6 @@
 # my-blog
 see issues  
+[使用mpvue开发小程序遇到的问题](https://github.com/lulusir/my-blog/issues/17)
 
 [async/await 并行请求和错误处理](https://github.com/lulusir/my-blog/issues/16)  
 
