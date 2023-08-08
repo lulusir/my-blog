@@ -2,6 +2,8 @@
 
 see issues  
 
+[记录使用Hooks遇到的问题](https://github.com/lulusir/my-blog/issues/19)  
+
 [装饰模式](https://github.com/lulusir/my-blog/issues/18)  
 
 [使用mpvue开发小程序遇到的问题](https://github.com/lulusir/my-blog/issues/17)
